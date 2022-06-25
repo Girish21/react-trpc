@@ -1,24 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { DataBrowserRouter, Navigate, redirect, Route } from 'react-router-dom'
+import { DataBrowserRouter, redirect, Route } from 'react-router-dom'
 
 import { Loader } from './components/loader'
 import { PageLayout } from './components/page-layout'
 import './index.css'
-import Post, { $postIdLoader } from './pages/$postId'
-import Index, { indexLoader } from './pages/index'
+import FORPost from './pages/fetch-on-render/$postId'
+import FORPostsList from './pages/fetch-on-render/index'
+import FTRPost, { $postIdLoader } from './pages/fetch-then-render/$postId'
+import FTRPostsList, { indexLoader } from './pages/fetch-then-render/index'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <DataBrowserRouter>
       <Route element={<PageLayout />}>
-        <Route index loader={() => redirect('/posts')} />
+        <Route index loader={() => redirect('/fetch-then-render')} />
         <Route
-          path='posts'
+          path='fetch-then-render'
           loader={indexLoader}
           element={
             <React.Suspense fallback={<Loader />}>
-              <Index />
+              <FTRPostsList />
             </React.Suspense>
           }
         >
@@ -27,7 +29,24 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             loader={$postIdLoader}
             element={
               <React.Suspense fallback={<Loader />}>
-                <Post />
+                <FTRPost />
+              </React.Suspense>
+            }
+          />
+        </Route>
+        <Route
+          path='fetch-on-render'
+          element={
+            <React.Suspense fallback={<Loader />}>
+              <FORPostsList />
+            </React.Suspense>
+          }
+        >
+          <Route
+            path=':postId'
+            element={
+              <React.Suspense fallback={<Loader />}>
+                <FORPost />
               </React.Suspense>
             }
           />

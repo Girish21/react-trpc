@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom'
-import { Post as PostImpl } from '../../components/post'
+import { Post as PostImpl } from '../../../components/post'
 
 export default function Post() {
   const post = useLoaderData() as Post
