@@ -1,13 +1,20 @@
-import { useLoaderData } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router-dom'
+import { FormContainer } from '../../../components/form-container'
+import { Input } from '../../../components/input'
+import { TodoList } from '../../../components/todo-list'
+import { Wrapper } from '../../../components/wrapper'
 
 export default function Index() {
-  const data = useLoaderData()
+  const todos = useLoaderData() as Array<Todo>
 
   return (
-    <div className='flex-1'>
-      <pre>
-        <code className='whitespace-pre'>{data}</code>
-      </pre>
-    </div>
+    <Wrapper>
+      <FormContainer>
+        <Form method='post'>
+          <Input name='todo' required />
+        </Form>
+      </FormContainer>
+      <TodoList todos={todos} />
+    </Wrapper>
   )
 }
