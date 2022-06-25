@@ -9,6 +9,12 @@ export default function Index() {
    */
   return (
     <div className='flex-1'>
+      {/**
+       * 💣 delete the following `div`
+       */}
+      <div className='grid h-full place-content-center'>
+        <h1 className='font-mono text-4xl font-bold'>Hello 👋</h1>
+      </div>
       <pre>
         <code className='whitespace-pre'>
           {/**
