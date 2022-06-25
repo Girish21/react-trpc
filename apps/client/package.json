@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -13,14 +13,15 @@
     "@trpc/react": "^9.25.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-query": "^3.39.1"
+    "react-query": "^3.39.1",
+    "react-router-dom": "^6.4.0-pre.8"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
     "autoprefixer": "^10.4.7",
-    "backend": "*",
+    "server": "*",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.4",
     "typescript": "^4.6.3",

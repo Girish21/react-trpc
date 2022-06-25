@@ -5,5 +5,5 @@ module.exports = {
   arrowParens: 'avoid',
   trailingComma: 'all',
   plugins: [require('prettier-plugin-tailwindcss')],
-  tailwindConfig: './apps/frontend/tailwind.config.js',
+  tailwindConfig: './apps/client/tailwind.config.js',
 }
