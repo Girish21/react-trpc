@@ -5,10 +5,9 @@ import { DataBrowserRouter } from 'react-router-dom'
 
 import App from './App'
 import './index.css'
-import { trpc } from './utils/trpc'
+import { trpc, trpcClient } from './utils/trpc'
 
 let queryClient = new QueryClient()
-let trpcClient = trpc.createClient({ url: 'http://localhost:8080/trpc' })
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
