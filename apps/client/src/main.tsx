@@ -1,34 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { DataBrowserRouter, Route } from 'react-router-dom'
 
 import { Loader } from './components/loader'
 import { PageLayout } from './components/page-layout'
 import Index, { indexLoader } from './exercise/pages/index'
 import './index.css'
-import { trpc, trpcClient } from './utils/trpc'
-
-let queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <trpc.Provider client={trpcClient} queryClient={queryClient}>
-        <DataBrowserRouter>
-          <Route element={<PageLayout />}>
-            <Route
-              index
-              loader={indexLoader}
-              element={
-                <React.Suspense fallback={<Loader />}>
-                  <Index />
-                </React.Suspense>
-              }
-            />
-          </Route>
-        </DataBrowserRouter>
-      </trpc.Provider>
-    </QueryClientProvider>
+    <DataBrowserRouter>
+      <Route element={<PageLayout />}>
+        <Route
+          index
+          loader={indexLoader}
+          element={
+            <React.Suspense fallback={<Loader />}>
+              <Index />
+            </React.Suspense>
+          }
+        />
+      </Route>
+    </DataBrowserRouter>
   </React.StrictMode>,
 )
