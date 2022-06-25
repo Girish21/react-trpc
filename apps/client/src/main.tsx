@@ -4,7 +4,7 @@ import { DataBrowserRouter, Route } from 'react-router-dom'
 
 import { Loader } from './components/loader'
 import { PageLayout } from './components/page-layout'
-import Index, { indexLoader } from './exercise/pages/index'
+import Index, { indexAction, indexLoader } from './exercise/pages/index'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route
           index
           loader={indexLoader}
+          // 🛠 import the `indexAction` and pass it as the `action` prop
           element={
             <React.Suspense fallback={<Loader />}>
               <Index />

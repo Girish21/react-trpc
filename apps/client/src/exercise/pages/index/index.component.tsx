@@ -1,27 +1,24 @@
-/**
- * 🛠 import `useLoaderData` from `react-router-dom`
- */
+import { useLoaderData } from 'react-router-dom'
+import { FormContainer } from '../../../components/form-container'
+import { TodoList } from '../../../components/todo-list'
+import { Wrapper } from '../../../components/wrapper'
+
 export default function Index() {
-  /**
-   * 💰 `useLoaderData` is a hook that returns the data from the route `loader`
-   * ✨ use `useLoaderData` to get the data from the route `loader`
-   * and assign it to `data`
-   */
+  const todos = useLoaderData() as Array<Todo>
+
   return (
-    <div className='flex-1'>
-      {/**
-       * 💣 delete the following `div`
-       */}
-      <div className='grid h-full place-content-center'>
-        <h1 className='font-mono text-4xl font-bold'>Hello 👋</h1>
-      </div>
-      <pre>
-        <code className='whitespace-pre'>
-          {/**
-           * 🛠 render the `data` and `JSON.stringify` it
-           */}
-        </code>
-      </pre>
-    </div>
+    <Wrapper>
+      <FormContainer>
+        {/**
+         * 🛠 Create a `Form` with the method as `post`
+         * 🚨 import the `Form` component from `react-router-dom`
+         *
+         * 🛠 Create a `Input` with the `name` as `todo` and the input field should be `required`
+         * 🚨 import the `Input` component from `components`
+         *
+         */}
+      </FormContainer>
+      <TodoList todos={todos} />
+    </Wrapper>
   )
 }
