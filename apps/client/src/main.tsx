@@ -4,7 +4,7 @@ import { DataBrowserRouter, Route } from 'react-router-dom'
 
 import { Loader } from './components/loader'
 import { PageLayout } from './components/page-layout'
-import Index, { indexAction, indexLoader } from './exercise/pages/index'
+import Index, { indexLoader } from './exercise/pages/index'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
