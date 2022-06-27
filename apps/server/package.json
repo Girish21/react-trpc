@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/index.ts",
   "scripts": {
-    "build": "npx tsc",
-    "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
+    "build": "NODE_ENV=\"production\" node build.mjs",
+    "dev": "nodemon",
     "start": "node dist/index.js",
     "typecheck": "tsc --noEmit"
   },
@@ -19,10 +19,16 @@
     "@types/morgan": "^1.9.3",
     "@types/node": "^18.0.0",
     "concurrently": "^7.2.2",
+    "esbuild": "^0.14.47",
+    "esbuild-plugin-node-externals": "^0.3.0",
+    "esbuild-register": "^3.3.3",
     "nodemon": "^2.0.18",
+    "prisma": "^3.15.2",
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.3.0",
+    "@prisma/client": "^3.15.2",
     "@trpc/server": "^9.25.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
@@ -30,5 +36,8 @@
     "express": "^4.18.1",
     "morgan": "^1.10.0",
     "zod": "^3.17.3"
+  },
+  "prisma": {
+    "seed": "node -r esbuild-register prisma/seed.ts"
   }
 }
