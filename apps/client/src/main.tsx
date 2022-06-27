@@ -2,7 +2,7 @@ import * as React from 'react'
 import ReactDOM from 'react-dom/client'
 import { QueryClientProvider } from 'react-query'
 import { DataBrowserRouter, Route } from 'react-router-dom'
-import Index, { indexLoader } from './pages/index'
+import Index, { indexLoader } from './exercise/pages/index'
 
 import './index.css'
 import { buildDataFunction } from './utils/build-data-function'
@@ -11,6 +11,7 @@ import { trpc, trpcClient } from './utils/trpc'
 
 function RoutesWithtRPC() {
   let trpcContext = trpc.useContext()
+
   return (
     <DataBrowserRouter>
       <Route
