@@ -11,11 +11,27 @@ const noteRoutes = trpc
       })
     },
   })
-  .query('note', {
+  .query('notes', {
     input: z.string().min(1),
     async resolve({ input }) {
       return await db.note.findMany({
         where: { noteTagId: input },
+        select: {
+          id: true,
+          updatedAt: true,
+          content: true,
+          createdAt: true,
+          title: true,
+          Tag: { select: { tag: true } },
+        },
+      })
+    },
+  })
+  .query('note', {
+    input: z.string().min(1),
+    async resolve({ input }) {
+      return await db.note.findUnique({
+        where: { id: input },
         select: {
           id: true,
           updatedAt: true,
