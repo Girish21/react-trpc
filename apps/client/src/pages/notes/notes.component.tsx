@@ -9,7 +9,7 @@ export default function App() {
     <>
       <div className='col-span-4 col-start-4'>
         <ul className='flex flex-col gap-3'>
-          {data.data?.map(({ id, title, content, Tag: { tag }, updatedAt }) => (
+          {data.data?.map(({ id, title, content }) => (
             <li key={id}>
               <Link to={id} resetScroll={false}>
                 <div className='flex flex-col gap-3 rounded-lg bg-white p-2'>
