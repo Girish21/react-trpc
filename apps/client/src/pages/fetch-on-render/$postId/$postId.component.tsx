@@ -10,7 +10,9 @@ export default function Post() {
   )
 
   if (!post) {
-    return <Loader />
+    return (
+      <div className='sticky top-1/2 h-max -translate-y-1/2'>Loading...</div>
+    )
   }
 
   return (

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { flushSync } from 'react-dom'
 
 export function useFetch<T>(url: string, options?: RequestInit): T | null {
   const [state, setState] = React.useState<T | null>(null)
@@ -11,6 +12,7 @@ export function useFetch<T>(url: string, options?: RequestInit): T | null {
     abortController.current = new AbortController()
 
     async function handleFetch() {
+      flushSync(() => setState(null))
       const data = await fetch(url, {
         ...(options && { options }),
         mode: 'cors',
