@@ -36,12 +36,12 @@ app.use(morgan('tiny'))
 app.use(express.urlencoded())
 
 app.get('/', (_, res: express.Response) => {
-  return res.status(200).send(PageHTML)
+  return res.status(200).setHeader('Content-Type', 'text/html').send(PageHTML)
 })
 
 app.post('/', async (req: express.Request, res: express.Response) => {
   console.log(req.body)
-  return res.status(200).end(PageHTML)
+  return res.status(200).setHeader('Content-Type', 'text/html').end(PageHTML)
 })
 
 app.listen(process.env.PORT, () => {
