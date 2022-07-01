@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useNavigation } from 'react-router-dom'
 import { FormContainer } from '../../../components/form-container'
 import { TodoList } from '../../../components/todo-list'
 import { Wrapper } from '../../../components/wrapper'
@@ -21,4 +21,14 @@ export default function Index() {
       <TodoList todos={todos} />
     </Wrapper>
   )
+}
+
+function createItem(title: string) {
+  return {
+    title,
+    completed: false,
+    id: window.crypto.randomUUID(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }
 }
